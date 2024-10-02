@@ -92,11 +92,12 @@ def get_user_role(username: str):
     # encrypt email (#FIXME: this is not the best way to do this, not really encryption, more like a hash)
     encryption_salt = EMAIL_ENCRYPTION_KEY.encode()
     encrypted_email = deterministic_hash(username, encryption_salt)
-    role = USER_ROLES.get(encrypted_email, ["student", "bu"])
+    role = USER_ROLES.get(encrypted_email, ["guest"])
 
     if "guest" in role:
-        return "unauthorized"
-
+        print ('ROLE IS GUEST')
+        
+        role = ["student", "bu"]
     return role
 
 
