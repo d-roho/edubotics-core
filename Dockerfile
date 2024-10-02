@@ -3,18 +3,18 @@ FROM python:3.11
 WORKDIR .
 
 COPY ./requirements.txt /code/requirements.txt
-COPY ./setup.py /code/setup.py
-
-RUN pip install --upgrade pip
+# COPY ./setup.py /code/setup.py
 
 # --no-cache-dir
+RUN pip install --upgrade pip
+
 RUN pip install -r /code/requirements.txt
 # RUN pip install -e ./
 
 COPY . /code
 
 # Copy .env file to the application directory
-COPY .env /code/apps/ai_tutor/.env
+# COPY .env /code/apps/ai_tutor/.env
 
 # List the contents of the /code directory to verify files are copied correctly
 RUN ls -R /code
@@ -36,4 +36,5 @@ RUN ls -R /code
 EXPOSE 7860
 
 # Default command to run the application
-CMD python -m edubotics_core.vectorstore.store_manager --config_file config/config.yml --project_config_file config/project_config.yml && python -m uvicorn app:app --host 0.0.0.0 --port 7860
+# CMD python -m edubotics_core.vectorstore.store_manager --config_file config/config.yml --project_config_file config/project_config.yml 
+CMD python -m uvicorn app:app --host 0.0.0.0 --port 7860
