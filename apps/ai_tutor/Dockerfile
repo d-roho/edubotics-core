@@ -4,7 +4,7 @@ FROM us-central1-docker.pkg.dev/rdba882/edubotics-supervised-ml/edubotics_superv
 WORKDIR .
 
 COPY ./.env ./.env
-COPY ./app.py ./app.py
+COPY ./app3.py ./app.py
 COPY ./public/files/students_encrypted.json ./public/files/students_encrypted.json
 CMD echo modified
 CMD python -m uvicorn app:app --host 0.0.0.0 --port 7860
