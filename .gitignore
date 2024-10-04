@@ -184,3 +184,6 @@ code/storage/models/
 **/apps/*/private/*
 
 .idea/
+/testa
+\apps\ai_tutor\private
+\apps\ai_tutor\storage
